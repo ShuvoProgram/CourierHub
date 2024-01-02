@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import {
     Box,
     useColorModeValue,
@@ -5,15 +7,16 @@ import {
     DrawerContent,
     useDisclosure,
   } from '@chakra-ui/react';
+import SidebarContent from '../SidebarContent';
 
 function SidebarWithHeader({ children }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box minH='100vh' bg={useColorModeValue('gray.100', 'gray.900')}>
-    {/* <SidebarContent
+    <SidebarContent
       onClose={() => onClose}
       display={{ base: 'none', md: 'block' }}
-    /> */}
+    />
     <Drawer
       autoFocus={false}
       isOpen={isOpen}
@@ -24,7 +27,7 @@ function SidebarWithHeader({ children }) {
       size='full'
     >
       <DrawerContent>
-        {/* <SidebarContent onClose={onClose} /> */}
+        <SidebarContent onClose={onClose} />
       </DrawerContent>
     </Drawer>
 
