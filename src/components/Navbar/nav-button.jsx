@@ -3,10 +3,10 @@ import React, { useContext, createContext } from "react";
 import { IconButton, Icon } from "@chakra-ui/react";
 import { CgClose, CgMenu } from "react-icons/cg";
 
-export const NavContext = createContext(null);
+export const NavContext = createContext({});
 
 const NavButton = (props) => {
-  const { onToggle, isOpen } = useContext(NavContext);
+  const { onToggle, isOpen } = useContext(NavContext) || {};
   const icon = isOpen ? CgMenu : CgClose;
   return (
     <IconButton

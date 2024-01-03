@@ -1,5 +1,5 @@
 import { Avatar, AvatarBadge } from "@chakra-ui/avatar";
-import Icon from "@chakra-ui/icon";
+// import Icon from "@chakra-ui/icon";
 import { HStack } from "@chakra-ui/layout";
 import { IoIosArrowDown } from "react-icons/io";
 const Profile = () => {
@@ -12,7 +12,8 @@ const Profile = () => {
       >
         <AvatarBadge boxSize="1.25em" bg="green.500" />
       </Avatar>
-      <Icon as={IoIosArrowDown} />
+      <IoIosArrowDown/>
+      {/* <Icon as={IoIosArrowDown} /> */}
     </HStack>
   );
 };

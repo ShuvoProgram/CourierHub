@@ -6,7 +6,7 @@ import Notifications from "./notifications";
 import Profile from "./profile";
 // import { ThemeToggle } from "./theme-toggle";
 import { CgMenuRightAlt, CgMenuMotion } from "react-icons/cg";
-import Icon from "@chakra-ui/icon";
+import { Icon } from '@chakra-ui/react'
 import { useDisclosure } from "@chakra-ui/hooks";
 import { SlideFade } from "@chakra-ui/transition";
 const Actions = () => {
