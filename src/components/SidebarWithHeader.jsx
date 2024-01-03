@@ -7,7 +7,7 @@ import {
     DrawerContent,
     useDisclosure,
   } from '@chakra-ui/react';
-import SidebarContent from '../SidebarContent';
+import SidebarContent from './SidebarContent';
 
 function SidebarWithHeader({ children }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
