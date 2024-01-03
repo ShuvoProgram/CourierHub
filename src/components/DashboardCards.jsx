@@ -1,7 +1,6 @@
-import { useOrderContext } from '../context/order_context';
+
 import { FaShoppingCart, FaRupeeSign } from 'react-icons/fa';
 import { MdPendingActions, MdDeliveryDining } from 'react-icons/md';
-import { formatPrice } from '../utils/helpers';
 import {
   Flex,
   Icon,
@@ -12,32 +11,32 @@ import {
   SimpleGrid,
   Box,
 } from '@chakra-ui/react';
+import { formatPrice } from '../utils/helpers';
 
 function DashboardCards() {
-  const { orders, pending_orders, delivered_orders, total_revenue } =
-    useOrderContext();
+
   const cardList = [
     {
       title: 'Total Orders',
-      value: orders.length,
+      value: 24,
       icon: FaShoppingCart,
       color: 'brown.500',
     },
     {
       title: 'Pending Orders',
-      value: pending_orders.length,
+      value: 10,
       icon: MdPendingActions,
       color: 'red.500',
     },
     {
       title: 'Delivered Orders',
-      value: delivered_orders.length,
+      value: 100,
       icon: MdDeliveryDining,
       color: 'blue.500',
     },
     {
       title: 'Total Revenue',
-      value: formatPrice(total_revenue),
+      value: formatPrice(40),
       icon: FaRupeeSign,
       color: 'green.500',
     },
