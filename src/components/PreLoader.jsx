@@ -1,4 +1,4 @@
-import logo from '../assets/logo.svg';
+import logo from '../assets/corierHub_logo.png';
 import { Image, Progress, VStack, Text, HStack } from '@chakra-ui/react';
 
 function PreLoader() {
