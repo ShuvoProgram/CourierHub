@@ -2,7 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import SIgnIn from "../pages/SignIn/SIgnIn";
 import MainLayout from "../layouts/MainLayout/MainLayout";
 import AdminLayout from "../layouts/AdminLayout";
-import Dashboard from "../components/Dashboard";
+import Dashboard from "../pages/Dashboard";
+import Profile from "../pages/Dashboard/Profile";
 
 const routes = createBrowserRouter([
     {
@@ -21,7 +22,11 @@ const routes = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <Dashboard/>
+                element: <Dashboard />
+            },
+            {
+                path: '/dashboard/profile',
+                element: <Profile/>
             }
         ]
     }
