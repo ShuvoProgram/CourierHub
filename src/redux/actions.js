@@ -1,12 +1,7 @@
-export const SET_TOGGLE = "SET_TOGGLE";
-export const SET_TOGGLE_NAVBAR = "SET_TOGGLE_NAVBAR";
-
-export const setToggle = (payload) => ({
-  type: SET_TOGGLE,
-  payload,
+export const openSidebar = () => ({
+  type: 'OPEN_SIDEBAR',
 });
 
-export const setToggleNavbar = (payload) => ({
-  type: SET_TOGGLE_NAVBAR,
-  payload,
+export const closeSidebar = () => ({
+  type: 'CLOSE_SIDEBAR',
 });

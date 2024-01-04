@@ -1,6 +1,7 @@
 import { extendTheme } from '@chakra-ui/react';
+import { styles } from './styles';
 
-const theme = extendTheme({
+const theme = extendTheme(styles,{
   colors: {
     teal: {
       900: '#134e4a',

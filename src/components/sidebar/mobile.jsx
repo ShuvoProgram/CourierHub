@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-sparse-arrays */
 import { Stack } from "@chakra-ui/layout";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import NavItem from "./nav-item";
 import SectionDivider from "./section-divider";
 import IntegrationItem from "./integration-item";
@@ -14,11 +14,18 @@ import {
   DrawerOverlay,
 } from "@chakra-ui/modal";
 import Search from "../Navbar/search";
-import { NavContext } from "../../layouts/AdminLayout";
+import { useDispatch, useSelector } from "react-redux";
+import { closeSidebar } from "../../redux/actions";
 
 const MobileSidebar = () => {
   const router = useRoutes();
-  const { isOpen, onClose } = useContext(NavContext) || {};
+  const isOpen = useSelector(state => state.sidebar.isOpen);
+  const dispatch = useDispatch();
+
+  const onClose = () => {
+    dispatch(closeSidebar());
+  };
+
   useEffect(() => {
     router.events.on("routeChangeComplete", onClose);
     return () => {

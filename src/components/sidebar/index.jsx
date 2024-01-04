@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-sparse-arrays */
 import { Divider, Spacer, Stack } from "@chakra-ui/layout";
-import { useContext } from "react";
 import { RiDashboardLine } from "react-icons/ri";
 import { BiBasket } from "react-icons/bi";
 import {
@@ -15,11 +14,12 @@ import { FaIntercom, FaJira, FaSlack } from "react-icons/fa";
 import IntegrationItem from "./integration-item";
 import { FiPlus, FiPower, FiSettings } from "react-icons/fi";
 import CollapsedItem from "./collapsed-item";
-import { NavContext } from "../../layouts/AdminLayout";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
   const { routes, integrations } = getRoutesAndIntegrations();
-  const { isOpen } = useContext(NavContext) || {};
+  const isOpen = useSelector(state => state.sidebar.isOpen);
+  
   const NavAction = isOpen ? CollapsedItem : NavItem;
   const IntegrationAction = isOpen ? CollapsedItem : IntegrationItem;
 
@@ -27,7 +27,7 @@ const Sidebar = () => {
     <Stack
       layerStyle="card"
       rounded="xl"
-      w={isOpen ? "60px" : "300px"}
+      w={isOpen ? "60px" : "250px"}
       transition="width .4s ease-in-out"
       py={8}
       shadow="md"

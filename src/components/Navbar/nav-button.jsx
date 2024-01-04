@@ -1,22 +1,34 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext, createContext } from "react";
+import React from "react";
 import { IconButton, Icon } from "@chakra-ui/react";
 import { CgClose, CgMenu } from "react-icons/cg";
-
-export const NavContext = createContext({});
+import { useDispatch, useSelector } from "react-redux";
+import { closeSidebar, openSidebar } from "../../redux/actions";
 
 const NavButton = (props) => {
-  const { onToggle, isOpen } = useContext(NavContext) || {};
+  const dispatch = useDispatch();
+
+  const isOpen = useSelector(state => state.sidebar.isOpen);
+
   const icon = isOpen ? CgMenu : CgClose;
+
+  const handleSidebarToggle = () => {
+    if (isOpen) {
+      dispatch(closeSidebar());
+    } else {
+      dispatch(openSidebar());
+    }
+  };
+
   return (
     <IconButton
-      colorScheme="brand"
+      colorScheme="teal"
       variant="ghost"
       fontSize="2xl"
       aria-label="Toggle Actions"
       icon={<Icon as={icon} />}
       transition="all .4s ease-in-out"
-      onClick={onToggle}
+      onClick={handleSidebarToggle}
     />
   );
 };

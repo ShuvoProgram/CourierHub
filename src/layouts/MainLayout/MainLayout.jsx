@@ -1,13 +1,11 @@
-import { Outlet } from "react-router-dom"
-import Navbar from "../../components/Navbar"
+import SIgnIn from "../../pages/SignIn/SIgnIn"
 
 function MainLayout() {
   return (
     <div>
-    <Navbar />
-    <Outlet/>
+    <SIgnIn/>
     </div>
   )
 }
 
-export default MainLayout
+export default MainLayout;
