@@ -5,16 +5,13 @@ import './index.css'
 import { Provider } from 'react-redux';
 import store from './redux/store.js';
 import App from './App.jsx';
-import { BrowserRouter } from 'react-router-dom'
 import theme from './theme/ThemeConfig.js';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <Provider store={store}>
-        <BrowserRouter>
         <App />
-        </BrowserRouter>
       </Provider>
     </ChakraProvider>
   </React.StrictMode>,

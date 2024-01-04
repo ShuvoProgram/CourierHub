@@ -1,16 +1,14 @@
+import { Box } from '@chakra-ui/react';
 import './App.css';
-import AdminLayout from './layouts/AdminLayout';
-import MainLayout from './layouts/MainLayout/MainLayout';
-import SIgnIn from './pages/SignIn/SIgnIn';
+import { RouterProvider } from 'react-router-dom';
+import routes from './routes/routes';
 
 function App() {
 
   return (
-    <>
-     {/* <SIgnIn /> */}
-     {/* <MainLayout/> */}
-     <AdminLayout/>
-    </>
+    <Box w="full">
+   <RouterProvider router={routes} />
+    </Box>
   )
 }
 
