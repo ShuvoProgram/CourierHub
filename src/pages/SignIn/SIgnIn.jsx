@@ -1,4 +1,4 @@
-import { useToast } from '@chakra-ui/react';
+import { HStack, useToast } from '@chakra-ui/react';
 import {
     Flex,
     Box,
@@ -55,6 +55,9 @@ function SIgnIn() {
                 Login
               </Button>
             </Stack>
+            <HStack>
+              <a href='#' className='hover:text-teal-500'>Create An Account</a>
+            </HStack>
           </Stack>
         </Box>
       </Stack>
