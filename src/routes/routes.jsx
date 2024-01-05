@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout/MainLayout";
 import AdminLayout from "../layouts/AdminLayout";
 import Dashboard from "../pages/Dashboard";
 import Profile from "../pages/Dashboard/Profile";
+import Couriers from "../pages/Dashboard/Couriers";
 
 const routes = createBrowserRouter([
     {
@@ -27,7 +28,12 @@ const routes = createBrowserRouter([
             {
                 path: '/dashboard/profile',
                 element: <Profile/>
-            }
+            },
+            {
+                path: '/dashboard/courier',
+                element: <Couriers/>
+            },
+
         ]
     }
 ])

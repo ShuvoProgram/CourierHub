@@ -4,7 +4,7 @@ import {
     FormLabel,
     Input,
     Flex,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 
 function EditProfileForm() {
 
