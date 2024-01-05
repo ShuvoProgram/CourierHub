@@ -6,7 +6,6 @@ import { CiUser } from "react-icons/ci";
 import { BiBasket } from "react-icons/bi";
 import {
   HiOutlineCalendar,
-  HiOutlineChat,
   HiOutlineFolder,
 } from "react-icons/hi";
 import NavItem from "./nav-item";

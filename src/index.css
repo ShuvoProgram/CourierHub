@@ -1,0 +1,20 @@
+body {
+    --sb-thumb-color: #0d9488;
+    --sb-size: 6px;
+  
+    scrollbar-color: var(--sb-thumb-color) 
+  }
+  
+  body::-webkit-scrollbar {
+    width: var(--sb-size) 
+  }
+  
+  body::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 10px;
+    
+    }

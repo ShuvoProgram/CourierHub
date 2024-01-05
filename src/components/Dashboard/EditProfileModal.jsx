@@ -1,21 +1,22 @@
 /* eslint-disable react/prop-types */
-import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, Text } from "@chakra-ui/react";
+import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader } from "@chakra-ui/react";
+import PrimaryButton from "../Buttons/Button";
 
-function EditProfileModal({isOpen, onClose, overlay}) {
+function EditProfileModal({ isOpen, onClose, overlay, modalTitle, modalContent }) {
   return (
-    <Modal isCentered isOpen={isOpen} onClose={onClose}>
-    {overlay}
-    <ModalContent>
-      <ModalHeader>Modal Title</ModalHeader>
-      <ModalCloseButton />
-      <ModalBody>
-        <Text>Custom backdrop filters!</Text>
-      </ModalBody>
-      <ModalFooter>
-        <Button onClick={onClose}>Close</Button>
-      </ModalFooter>
-    </ModalContent>
-  </Modal>
+    <Modal isCentered isOpen={isOpen} onClose={onClose} size='xl'>
+      {overlay}
+      <ModalContent>
+        <ModalHeader>{modalTitle}</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+        {modalContent}
+        </ModalBody>
+        <ModalFooter>
+          <PrimaryButton title="Update Profile" h="40px" w="200px" />
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
   )
 }
 

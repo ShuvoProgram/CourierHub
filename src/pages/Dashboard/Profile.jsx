@@ -1,18 +1,33 @@
-import { ModalOverlay, useDisclosure } from "@chakra-ui/react";
+import { ModalOverlay } from "@chakra-ui/react";
 import IconButton from "../../components/Buttons/IconButton";
 import { CiEdit, CiLogout } from "react-icons/ci";
-import React from "react";
+import { useState } from "react";
 import EditProfileModal from "../../components/Dashboard/EditProfileModal";
+import EditProfileForm from "../../components/Dashboard/EditProfileForm";
+
 
 function Profile() {
+    const [isOpen, setIsOpen] = useState(false);
+
+  
     const OverlayOne = () => (
         <ModalOverlay
           bg='blackAlpha.300'
           backdropFilter='blur(10px) hue-rotate(90deg)'
         />
       )
-      const { isOpen, onOpen, onClose } = useDisclosure()
-      const [overlay, setOverlay] = React.useState(<OverlayOne />)
+
+      const openModal = () => {
+        setOverlay(<OverlayOne/>)
+      setIsOpen(true);
+    };
+  
+    const closeModal = () => {
+      setIsOpen(false);
+    };
+
+     
+      const [overlay, setOverlay] = useState(<OverlayOne />)
     return (
         <div
             className=" flex items-center justify-center min-h-screen w-full">
@@ -26,10 +41,8 @@ function Profile() {
                 <small className="block my-1 text-center">Khan@gmail.com</small>
                 <p className="mt-5 text-center">Delivery Man</p>
                 <div className="flex items-center justify-center gap-2 w-[80%] mx-auto mt-5 mb-10">
-                    <IconButton icon={CiEdit} title="Edit" color="teal" h="40px" w="200px" onClick={() => {
-          setOverlay(<OverlayOne />)
-          onOpen()
-        }}/>
+                    <IconButton icon={CiEdit} title="Edit" color="teal" h="40px" w="200px" onClick={openModal}/>
+
                     <IconButton icon={CiLogout} title="Log Out" color="red" h="40px" w="200px" />
 
                 </div>
@@ -85,9 +98,14 @@ function Profile() {
                     </div>
                 </div>
             </section>
-            {
-                <EditProfileModal isOpen={isOpen} onClose={onClose} overlay={overlay}/>
-            }
+            <EditProfileModal
+        isOpen={isOpen}
+        onClose={closeModal}
+        overlay={overlay}
+        modalTitle="Update Profile Information" 
+        modalContent={<EditProfileForm />}
+        buttonText="Close"
+      />
         </div>
     )
 }
