@@ -2,6 +2,7 @@
 /* eslint-disable no-sparse-arrays */
 import { Divider, Spacer, Stack } from "@chakra-ui/layout";
 import { RiDashboardLine } from "react-icons/ri";
+import { CiUser } from "react-icons/ci";
 import { BiBasket } from "react-icons/bi";
 import {
   HiOutlineCalendar,
@@ -62,8 +63,8 @@ export default Sidebar;
 
 function getRoutesAndIntegrations() {
   const routes = [
-    { name: "Dashboard", href: "/", icon: RiDashboardLine },
-    { name: "Team Chat", href: "/team-chat", icon: HiOutlineChat, count: 3 },
+    { name: "Dashboard", href: "/dashboard", icon: RiDashboardLine },
+    { name: "Profile", href: "/dashboard/profile", icon: CiUser },
     { name: "Calendar", href: "/calendar", icon: HiOutlineCalendar },
     { name: "Documents", href: "/documents", icon: HiOutlineFolder },
     { name: "Store", href: "/store", icon: BiBasket },
