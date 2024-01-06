@@ -15,7 +15,8 @@ import {
 } from "@chakra-ui/modal";
 import Search from "../Navbar/search";
 import { useDispatch, useSelector } from "react-redux";
-import { closeSidebar } from "../../redux/actions";
+import { closeSidebar } from "../../redux/feature/sidebar/sidebarAction";
+
 
 const MobileSidebar = () => {
   const router = useRoutes();

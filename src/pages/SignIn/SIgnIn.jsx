@@ -1,4 +1,4 @@
-import { HStack, useToast } from '@chakra-ui/react';
+import { HStack, ModalOverlay, useToast } from '@chakra-ui/react';
 import {
     Flex,
     Box,
@@ -10,8 +10,32 @@ import {
     Image,
   } from '@chakra-ui/react';
 import logo from '../../assets/corierHub_logo.png';
+import { useState } from 'react';
+import DepartmentSIgnUpForm from '../../components/Form/DepartmentSIgnUpForm';
+import FormModal from '../../components/Modal/FormModal';
 
 function SIgnIn() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  
+    const OverlayOne = () => (
+        <ModalOverlay
+          bg='blackAlpha.300'
+          backdropFilter='blur(10px) hue-rotate(90deg)'
+        />
+      )
+
+      const openModal = () => {
+        setOverlay(<OverlayOne/>)
+      setIsOpen(true);
+    };
+  
+    const closeModal = () => {
+      setIsOpen(false);
+    };
+
+     
+      const [overlay, setOverlay] = useState(<OverlayOne />)
   return (
     <Flex minH={'100vh'} minW={'100vw'} align={'center'} justify={'center'} bg={'gray.50'}>
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
@@ -56,11 +80,20 @@ function SIgnIn() {
               </Button>
             </Stack>
             <HStack>
-              <a href='#' className='hover:text-teal-500'>Create An Account</a>
+              <a href={'javascript:[0]'} className='hover:text-teal-500' onClick={openModal}>Create An Account</a>
             </HStack>
           </Stack>
         </Box>
       </Stack>
+      <FormModal
+        isOpen={isOpen}
+        onClose={closeModal}
+        overlay={overlay}
+        modalTitle="Create an account !" 
+        modalContent={<DepartmentSIgnUpForm />}
+        buttonText="Close"
+        modalSize="xl"
+      />
     </Flex>
   )
 }

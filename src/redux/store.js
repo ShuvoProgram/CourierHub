@@ -1,17 +1,21 @@
-import { createStore } from "redux";
-import sidebarReducer from "./reducers";
+import { configureStore } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import thunk from 'redux-thunk';
+import rootReducer from './rootReducers';
 
-// rootReducer.js
-import { combineReducers } from 'redux';
-import authReducer from "./feature/auth/authReducer";
+const persistConfig = {
+  key: 'root',
+  storage,
+};
 
-const rootReducer = combineReducers({
-  sidebar: sidebarReducer,
-  auth: authReducer,
-  // other reducers...
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });
 
-const store = createStore(rootReducer);
+const persistor = persistStore(store);
 
-export default store;
-
+export { store, persistor };

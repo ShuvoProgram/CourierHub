@@ -3,7 +3,7 @@ import React from "react";
 import { IconButton, Icon } from "@chakra-ui/react";
 import { CgClose, CgMenu } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
-import { closeSidebar, openSidebar } from "../../redux/actions";
+import { closeSidebar, openSidebar } from "../../redux/feature/sidebar/sidebarAction";
 
 const NavButton = (props) => {
   const dispatch = useDispatch();

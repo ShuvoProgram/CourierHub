@@ -2,9 +2,9 @@
 import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader } from "@chakra-ui/react";
 import PrimaryButton from '../Buttons/Button';
 
-function CourierHubModal({ isOpen, onClose, overlay, modalTitle, modalContent, buttonTitle, buttonWidth, buttonHeight }) {
+function CourierHubModal({ isOpen, onClose, overlay, modalTitle, modalContent, modalSize, buttonTitle, buttonWidth, buttonHeight }) {
   return (
-    <Modal isCentered isOpen={isOpen} onClose={onClose} size='xl'>
+    <Modal isCentered isOpen={isOpen} onClose={onClose} size={modalSize}>
       {overlay}
       <ModalContent>
         <ModalHeader>{modalTitle}</ModalHeader>

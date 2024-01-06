@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
-const api = process.env.CourierHub_Server
+const api = "http://localhost:4545"
 
 export const register = (details) => {
-
+  console.log(details)
     return (dispatch) => {
       const url = `${api}/api/departments/addDepartment`
       fetch(url, {
