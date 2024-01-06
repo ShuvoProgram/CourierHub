@@ -1,12 +1,18 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable no-unused-vars */
+import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
 
 function privateRoutes({children}) {
+  const auth = useSelector((state) => state)
     const location = useLocation();
+
+    if(auth)
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
+  return children;
 }
 
 export default privateRoutes;
-
 
 // import { useAppSelector } from '@/redux/hook';
 // import {ReactNode} from 'react';

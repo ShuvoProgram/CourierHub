@@ -1,4 +1,4 @@
-import { HStack, ModalOverlay, useToast } from '@chakra-ui/react';
+import { HStack, InputGroup, InputRightElement, ModalOverlay } from '@chakra-ui/react';
 import {
     Flex,
     Box,
@@ -13,10 +13,14 @@ import logo from '../../assets/corierHub_logo.png';
 import { useState } from 'react';
 import DepartmentSIgnUpForm from '../../components/Form/DepartmentSIgnUpForm';
 import FormModal from '../../components/Modal/FormModal';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/feature/auth/authAction';
 
 function SIgnIn() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [show, setShow] = useState(false)
+  const handleClick = () => setShow(!show)
+  const dispatch = useDispatch()
   
     const OverlayOne = () => (
         <ModalOverlay
@@ -34,6 +38,20 @@ function SIgnIn() {
       setIsOpen(false);
     };
 
+    const handleLogin = (event) => {
+      event.preventDefault()
+      const data = new FormData(event.currentTarget)
+      const registrationNumber = data.get('registrationNumber')
+      const password = data.get('password')
+  
+      const credentials = {
+        registrationNumber: registrationNumber,
+        password: password,
+      }
+
+      dispatch(login(credentials))
+    }
+
      
       const [overlay, setOverlay] = useState(<OverlayOne />)
   return (
@@ -44,41 +62,36 @@ function SIgnIn() {
         </Stack>
         <Box bg={'white'} rounded={'lg'} boxShadow={'lg'} p={8}>
           <Stack spacing={4}>
+            <form onSubmit={handleLogin}>
             <FormControl id='email'>
-              <FormLabel>Email address</FormLabel>
+              <FormLabel>Registration Number</FormLabel>
               <Input
-                type='email'
-                placeholder='Enter your email address'
+                type='text'
+                placeholder='Registration Number'
                 variant='filled'
                 focusBorderColor='teal.500'
-                // value={email}
-                // onChange={(e) => setEmail(e.target.value)}
+                name='registrationNumber'
               />
             </FormControl>
-            <FormControl id='password'>
+            <FormControl>
               <FormLabel>Password</FormLabel>
-              <Input
-                type='password'
-                placeholder='Enter your password'
-                variant='filled'
-                focusBorderColor='teal.500'
-                // value={password}
-                // onChange={(e) => setPassword(e.target.value)}
-              />
+              <InputGroup size='md'>
+                    <Input
+                        pr='4.5rem'
+                        type={show ? 'text' : 'password'}
+                        name='password' placeholder='Password'
+                    />
+                    <InputRightElement width='4.5rem'>
+                        <Button h='1.75rem' size='sm' onClick={handleClick}>
+                            {show ? 'Hide' : 'Show'}
+                        </Button>
+                    </InputRightElement>
+                </InputGroup>
             </FormControl>
-            <Stack spacing={10}>
-              <Button
-                // isLoading={loading}
-                bg={'teal.600'}
-                color={'white'}
-                _hover={{
-                  bg: 'teal.500',
-                }}
-                // onClick={handleSubmit}
-              >
-                Login
-              </Button>
-            </Stack>
+            <FormControl mt={4}>
+                <Button type='submit' h="40px" w="400px" colorScheme='teal'>Sign In</Button>
+            </FormControl>
+            </form>
             <HStack>
               <a href={'javascript:[0]'} className='hover:text-teal-500' onClick={openModal}>Create An Account</a>
             </HStack>
