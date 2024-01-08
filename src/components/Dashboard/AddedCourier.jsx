@@ -30,7 +30,7 @@ function AddedCourier() {
     
   return (
     <div>
-         <IconButton icon={CiEdit} title="Edit" color="teal" h="40px" w="200px" onClick={openModal}/>
+         <IconButton icon={CiEdit} title="Added New Courier" color="teal" h="40px" w="200px" onClick={openModal}/>
         <AddCourierModal
          isOpen={isOpen}
          onClose={closeModal}

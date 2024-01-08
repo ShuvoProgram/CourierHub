@@ -9,7 +9,6 @@ import Sidebar from "../../components/sidebar";
 import MobileSidebar from "../../components/sidebar/mobile";
 import { Outlet } from "react-router-dom";
 
-
 const AdminLayout = () => {
 
   const [isSmallScreen] = useMediaQuery("(max-width: 768px)");

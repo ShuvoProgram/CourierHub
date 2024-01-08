@@ -10,17 +10,20 @@ import {
     Image,
   } from '@chakra-ui/react';
 import logo from '../../assets/corierHub_logo.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DepartmentSIgnUpForm from '../../components/Form/DepartmentSIgnUpForm';
 import FormModal from '../../components/Modal/FormModal';
-import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/feature/auth/authAction';
 
 function SIgnIn() {
+  const { accessToken } = useSelector((state) => state.auth);
   const [isOpen, setIsOpen] = useState(false);
-  const [show, setShow] = useState(false)
-  const handleClick = () => setShow(!show)
-  const dispatch = useDispatch()
+  const [show, setShow] = useState(false);
+  const handleClick = () => setShow(!show);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   
     const OverlayOne = () => (
         <ModalOverlay
@@ -52,7 +55,12 @@ function SIgnIn() {
       dispatch(login(credentials))
     }
 
-     
+    useEffect(() => {
+      if(accessToken) {
+        navigate('/dashboard/department')
+      }
+    }, [accessToken, navigate])
+
       const [overlay, setOverlay] = useState(<OverlayOne />)
   return (
     <Flex minH={'100vh'} minW={'100vw'} align={'center'} justify={'center'} bg={'gray.50'}>

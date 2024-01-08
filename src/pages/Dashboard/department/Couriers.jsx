@@ -1,6 +1,6 @@
 import { Box, HStack } from "@chakra-ui/react"
-import CourierTable from "../../components/Table/CourierTable"
-import AddedCourier from "../../components/Dashboard/AddedCourier"
+import CourierTable from "../../../components/Table/CourierTable"
+import AddedCourier from "../../../components/Dashboard/AddedCourier"
 
 function Couriers() {
     

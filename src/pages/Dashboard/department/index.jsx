@@ -1,9 +1,9 @@
 import { Box } from "@chakra-ui/react";
-import StateCard from "../../components/Dashboard/stateCard";
-import PieChart from "../../components/Dashboard/PieChart";
-import BarChart from "../../components/Dashboard/BarChart";
+import StateCard from "../../../components/Dashboard/stateCard";
+import PieChart from "../../../components/Dashboard/PieChart";
+import BarChart from "../../../components/Dashboard/BarChart";
 
-function Dashboard() {
+function DepartmentDashboard() {
   return (
     <Box w="full">
         <StateCard />
@@ -16,4 +16,4 @@ function Dashboard() {
   )
 }
 
-export default Dashboard;
+export default DepartmentDashboard;

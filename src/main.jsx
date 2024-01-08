@@ -7,8 +7,8 @@ import App from './App.jsx';
 import { PersistGate } from 'redux-persist/integration/react'
 import theme from './theme/ThemeConfig.js';
 import { persistor, store } from './redux/store.js';
-
 import { createStandaloneToast } from '@chakra-ui/react'
+
 
 const { ToastContainer } = createStandaloneToast();
 
@@ -17,7 +17,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ChakraProvider theme={theme}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-        <App />
+      
+          <App />
+       
         <ToastContainer />
         </PersistGate>
       </Provider>
