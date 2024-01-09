@@ -1,9 +1,9 @@
 import { ModalOverlay } from '@chakra-ui/react';
 import { useState } from 'react'
-import AddCourierModal from './AddCourierModal';
-import AddedCourierForm from './AddedCourierForm';
+import AddCourierModal from '../Modal/AddCourierModal';
 import IconButton from '../Buttons/IconButton';
 import { CiEdit } from "react-icons/ci";
+import AddCourierForm from '../Form/AddCourierForm';
 
 function AddedCourier() {
     const [isOpen, setIsOpen] = useState(false);
@@ -30,17 +30,17 @@ function AddedCourier() {
     
   return (
     <div>
-         <IconButton icon={CiEdit} title="Added New Courier" color="teal" h="40px" w="200px" onClick={openModal}/>
+         <IconButton icon={CiEdit} title="Added New Courier" color="teal" h="40px" w="180px" onClick={openModal}/>
         <AddCourierModal
          isOpen={isOpen}
          onClose={closeModal}
          overlay={overlay}
          modalTitle="Added Courier Information" 
-         modalContent={<AddedCourierForm />}
+         modalContent={<AddCourierForm />}
          buttonText="Close"
         />
     </div>
   )
 }
 
-export default AddedCourier
+export default AddedCourier;

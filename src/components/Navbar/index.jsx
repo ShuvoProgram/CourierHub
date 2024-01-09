@@ -3,14 +3,9 @@ import { Flex, Spacer, Stack, Text } from "@chakra-ui/layout";
 import Actions from "./actions";
 import Info from "./info";
 import NavButton from "./nav-button";
-import Search from "./search";
 // import { routes } from "../sidebar";
 
 const Navbar = () => {
-
-  // const getRoute = () => {
-  //   return routes.find(({ href }) => router.pathname === href)?.name;
-  // };
 
   return (
     <Flex
@@ -34,7 +29,7 @@ const Navbar = () => {
         >
           {/* {getRoute()} */}
         </Text>
-        <Search display={["none", , "initial"]} />
+        
         <Spacer />
         <Actions />
       </Stack>

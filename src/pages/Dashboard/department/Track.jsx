@@ -1,7 +1,7 @@
-function Track() {
+function Tracker() {
   return (
     <div>Track</div>
   )
 }
 
-export default Track;
+export default Tracker;

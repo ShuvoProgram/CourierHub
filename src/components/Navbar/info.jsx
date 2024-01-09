@@ -1,16 +1,10 @@
-import { Flex, Stack, Text } from "@chakra-ui/layout";
-// import Logo from "components/logo";
+import { Stack} from "@chakra-ui/layout";
+import Logo from "../../assets/corierHub_logo.png";
 
 const Info = (props) => {
   return (
     <Stack direction="row" alignItems="center" {...props}>
-      {/* <Logo /> */}
-      <Flex direction="column" lineHeight="5">
-        <Text fontSize="lg" fontWeight="semibold" textStyle="default">
-          Chaktor
-        </Text>
-        <Text fontSize="sm">anubra266@chaktor.dev</Text>
-      </Flex>
+      <img src={Logo} alt="Courier Hub" className="w-56"/>
     </Stack>
   );
 };

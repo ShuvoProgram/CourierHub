@@ -1,13 +1,24 @@
 import { ModalOverlay } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CiEdit, CiLogout } from "react-icons/ci";
 import IconButton from "../../../components/Buttons/IconButton";
 import EditProfileModal from "../../../components/Dashboard/EditProfileModal";
 import EditProfileForm from "../../../components/Dashboard/EditProfileForm";
+import { useDispatch, useSelector } from "react-redux";
+import { getDepartmentInfo } from "../../../redux/feature/auth/authAction";
 
 function DProfile() {
     const [isOpen, setIsOpen] = useState(false);
+//     const departmentInitialValues = useSelector((state) => state.auth.department);
+    const {accessToken} = useSelector((state) => state.auth);
+    // console.log(accessToken)
+  const dispatch = useDispatch()
 
+useEffect(() => {
+    const profileData = dispatch(getDepartmentInfo(accessToken))
+    console.log(profileData);
+}, [accessToken, dispatch])
+    
   
     const OverlayOne = () => (
         <ModalOverlay

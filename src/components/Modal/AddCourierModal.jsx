@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader } from "@chakra-ui/react";
-import PrimaryButton from "../Buttons/Button";
+import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader } from "@chakra-ui/react";
 
 function AddCourierModal({ isOpen, onClose, overlay, modalTitle, modalContent }) {
   return (
@@ -12,9 +11,7 @@ function AddCourierModal({ isOpen, onClose, overlay, modalTitle, modalContent })
         <ModalBody>
         {modalContent}
         </ModalBody>
-        <ModalFooter>
-          <PrimaryButton title="Added" h="40px" w="200px" />
-        </ModalFooter>
+        
       </ModalContent>
     </Modal>
   )

@@ -5,6 +5,8 @@ import AdminLayout from "../layouts/AdminLayout";
 import Dashboard from "../pages/Dashboard/department";
 import Couriers from "../pages/Dashboard/department/Couriers";
 import DProfile from "../pages/Dashboard/department/Profile";
+import Tracker from "../pages/Dashboard/department/Track";
+import PrivateRoute from "./privateRoutes";
 
 
 const routes = createBrowserRouter([
@@ -20,11 +22,11 @@ const routes = createBrowserRouter([
     },
     {
         path: '/dashboard/department',
-        element: <AdminLayout/>,
+        element: <PrivateRoute><AdminLayout/></PrivateRoute>,
         children: [
             {
                 path: '/dashboard/department',
-                element: <Dashboard />
+                element: <PrivateRoute><Dashboard /></PrivateRoute>
             },
             {
                 path: '/dashboard/department/profile',
@@ -34,7 +36,10 @@ const routes = createBrowserRouter([
                 path: '/dashboard/department/courier',
                 element: <Couriers/>
             },
-
+            {
+                path: '/dashboard/department/tracker',
+                element: <Tracker/>
+            }
         ]
     }
 ])

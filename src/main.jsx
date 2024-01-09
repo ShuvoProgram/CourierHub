@@ -17,9 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ChakraProvider theme={theme}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-      
           <App />
-       
         <ToastContainer />
         </PersistGate>
       </Provider>

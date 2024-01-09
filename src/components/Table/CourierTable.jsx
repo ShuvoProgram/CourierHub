@@ -7,7 +7,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 function CourierTable() {
   return (
     <SimpleGrid bg='white' p={5} shadow='lg' borderRadius='lg' overflowX='auto'>
-      <Table variant='simple'>
+      <Table variant='striped' colorScheme='teal'>
           <Thead>
             <Tr>
               <Th>ReferenceID</Th>
@@ -17,12 +17,13 @@ function CourierTable() {
               <Th>Receiver</Th>
               <Th>Status</Th>
               <Th>UpdatedDate</Th>
-              <Th>Action</Th>
+              <Th>Courier Slip</Th>
+              {/* <Th>Action</Th> */}
             </Tr>
           </Thead>
           <Tbody>
             {CourierData.map((data, index) => {
-              const { ReferenceID, Description, Weight, Sender, Receiver, Status, UpdatedDate} = data;
+              const { ReferenceID, Description, Weight, Sender, Receiver, Status, UpdatedDate, courierSlip } = data;
               return (
                 <Tr key={index}>
                   <Td>{ReferenceID}</Td>
@@ -30,13 +31,14 @@ function CourierTable() {
                   <Td>{Weight}</Td>
                   <Td>{Sender}</Td>
                   <Td>{Receiver}</Td>
-                  <Td>
-                    <Badge colorScheme={'green'}>
+                  <Td textAlign="center" alignItems="center">
+                    <Badge textAlign="center" colorScheme={'green'} h="30px" w="50px">
                       {Status}
                     </Badge>
                   </Td>
                   <Td>{UpdatedDate}</Td>
-                  <Td>
+                  <Td>{courierSlip}</Td>
+                  {/* <Td>
                     <HStack spacing='5'>
                     <ButtonGroup variant="solid" size="sm" spacing={2}>
                     <IconButton
@@ -53,7 +55,7 @@ function CourierTable() {
                   </ButtonGroup>
                     
                     </HStack>
-                  </Td>
+                  </Td> */}
                 </Tr>
               );
             })}

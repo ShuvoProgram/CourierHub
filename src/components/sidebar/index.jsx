@@ -2,17 +2,14 @@
 /* eslint-disable no-sparse-arrays */
 import { Divider, Spacer, Stack } from "@chakra-ui/layout";
 import { RiDashboardLine } from "react-icons/ri";
+import { CiLocationOn } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
-import { BiBasket } from "react-icons/bi";
-import {
-  HiOutlineCalendar,
-  HiOutlineFolder,
-} from "react-icons/hi";
+import { TbTruckDelivery } from "react-icons/tb";
 import NavItem from "./nav-item";
 // import SectionDivider from "./section-divider";
 // import { FaIntercom, FaJira, FaSlack } from "react-icons/fa";
 import IntegrationItem from "./integration-item";
-import { FiPlus, FiPower, FiSettings } from "react-icons/fi";
+import { FiPower } from "react-icons/fi";
 import CollapsedItem from "./collapsed-item";
 import { useSelector } from "react-redux";
 
@@ -49,10 +46,8 @@ const Sidebar = () => {
       {integrations.map((props, iid) => (
         <IntegrationAction key={`int-item-${iid}`} {...props} />
       ))} */}
-      <IntegrationAction name="Add new plugin" icon={FiPlus} scheme="purple" />
       <Spacer />
       <Divider display={{ md: "none" }} />
-      <NavAction name="Settings" icon={FiSettings} />
       <NavAction name="Logout" icon={FiPower} />
     </Stack>
   );
@@ -64,9 +59,8 @@ function getRoutesAndIntegrations() {
   const routes = [
     { name: "Dashboard", href: "/dashboard/department", icon: RiDashboardLine },
     { name: "Profile", href: "/dashboard/department/profile", icon: CiUser },
-    { name: "Courier", href: "/dashboard/department/courier", icon: HiOutlineCalendar },
-    { name: "Documents", href: "/documents", icon: HiOutlineFolder },
-    { name: "Store", href: "/store", icon: BiBasket },
+    { name: "Courier", href: "/dashboard/department/courier", icon: TbTruckDelivery },
+    { name: "Tracker", href: "/dashboard/department/tracker", icon: CiLocationOn },
   ];
 
   return { routes };
