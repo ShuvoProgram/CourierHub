@@ -134,7 +134,7 @@ export const register = (details) => {
   }
 
   export const getDepartmentInfo = (accessToken) => {
-    console.log(accessToken);
+   
     return (dispatch) => {
       const url = `${api}/api/departments/getDepartmentInfo`;
       fetch(url, {
@@ -276,6 +276,14 @@ export const register = (details) => {
               dispatch({
                 type: 'PROFILE_UPDATE_SUCCESS',
                 payload: res.data,
+              })
+              toast({
+                title: 'Successfully Updated Profile',
+                description: response.message,
+                position: 'top-right',
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
               })
             })
           }

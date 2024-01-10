@@ -16,7 +16,32 @@ const courierReducer = (state = initState, action) => {
       return {
         ...state,
         couriers: null,
-        error: 'Something went wrong !',
+        error: 'Error fetching couriers!',
+      }
+
+    case 'COURIER_ADDED_SUCCESS':
+      return {
+        ...state,
+        couriers: action.payload,
+        error: null,
+      }
+
+    case 'COURIER_ADD_ERROR':
+      return {
+        ...state,
+        error: 'Error adding new courier!',
+      }
+
+    case 'UNAUTHORIZED':
+      return {
+        ...state,
+        error: 'Unauthorized access!',
+      }
+
+    case 'INTERNAL_SERVER_ERROR':
+      return {
+        ...state,
+        error: action.payload,
       }
 
     default:
